@@ -1,0 +1,16 @@
+h1{
+    color: aqua;
+    padding: 2px;
+    background-color: blue;
+}
+
+*{
+    background-color: antiquewhite;
+}
+
+table{
+    padding: 20px;
+    border: 23px;
+    background-color: bisque;
+    text-align: center;
+}
