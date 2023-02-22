@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .box{
+            background-color: black;
+            border: 20px;
+            height: 400px;
+            width: 400px;
+            border-color: blue;
+        }
+        
+        .rotate{
+            background-color: blue;
+            padding: 5px;
+            border: 15px;
+            height: 100px;
+            width: 100px;
+            border-color: black;
+            position: relative;;
+            animation-name: rotation;
+            animation-delay: 1s;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes rotation{
+            0%{background-color: aqua;left: 0px;top: 0px;}
+            25%{background-color: red;left: 300px;top: 0px;}
+            50%{background-color: aqua;left: 300px;top:300px}
+            75%{background-color: red;left: 0px;top:300px ;}
+            100%{background-color: aqua;left: 0px;top: 0px;}
+        }
+    </style>
+    <title>Simple Animation</title>
+</head>
+<body>
+    <div class="box">
+        <div class="rotate">
+
+        </div>
+
+    </div>
+</body>
+</html>
