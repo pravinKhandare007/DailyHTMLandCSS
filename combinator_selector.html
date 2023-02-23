@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combinator selector</title>
+    <style>
+        .div_style > p{
+            background-color: aqua;
+            display: inline-block;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="div_style">
+    <p >this is the first text</p>
+    <p >this is second text </p>
+    <p >this is 3 rd</p>
+    <div><p>this is desendant but will not get styled as we have used child selector <br> which only selects immidiate child</p></div>
+    </div>
+    <p >this is the 4 text</p>
+    <p >this is 5 text </p>
+    <p >this is 6 rd</p>
+</body>
+</html>
