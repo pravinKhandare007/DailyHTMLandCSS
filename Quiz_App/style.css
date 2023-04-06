@@ -1,0 +1,38 @@
+body{
+    background-color: grey;
+}
+
+.container{
+    width: 600px;
+    height: 500px;
+    background-color: white;
+    border: 2px solid;
+    margin: 0px auto;
+    padding: 10px 50px 50px 50px;
+}
+
+.container h1{
+    font-size: 60px;
+    background-color: green;
+    color: white;
+    padding: 2px 0px;
+    text-align: center;
+}
+
+.container #question {
+    font-size: 30px;
+    color: blue;
+}
+
+#btn0, #btn1,#btn2,#btn3{
+    background-color: blue;
+    color: white;
+    font-size: 20px;
+    width: 250px;
+    margin: 10px 40px 10px 0px;
+    padding: 10px;
+}
+
+#progress{
+    font-size: 20px;
+}
