@@ -1,0 +1,30 @@
+#part-1 ,#part-2{
+    display:inline-block;
+    vertical-align:top;
+    padding:0px;
+    margin:0px;
+}
+
+#part-1{
+    background-color:bisque;
+}
+
+.navigate{
+    text-align:center;
+}
+
+header{
+    text-align:center;
+    background-color:aliceblue;
+    padding:0px;
+    margin:0px;
+}
+
+#resume-template{
+    
+    width:500px;
+    height:800px;
+    margin:auto;
+    padding:0px;
+    
+}
