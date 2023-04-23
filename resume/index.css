@@ -19,6 +19,39 @@
     padding: 0px;
 }
 
+
+.navigate{
+    text-align:center;
+    height: 50px;
+    padding: 12px;
+    position: relative;
+}
+
+header{
+    text-align:center;
+    background-color:rgb(96, 156, 208);
+    padding:10px;
+    margin:0px;
+}
+
+#flexbox{
+    column-gap: 10px;
+    display:flex;
+    flex-flow:nowrap;
+    align-items:baseline;
+}
+
+#previous{
+    position: absolute;
+    left: 500px;
+    top:20px;
+}
+
+#next{
+    position: absolute;
+    left:900px;
+    top:20px;
+}
 #project-description{
     justify-content: center;
 }
@@ -40,42 +73,17 @@
     padding-left: 25px;
 }
 
+#error-container{
+    margin: auto;
+}
 
+#error-message{
+    display: none;
+    text-align: center;
+    
+}
 #part-1 div{
     text-align: right;
 }
 
-.navigate{
-    text-align:center;
-    height: 50px;
-    padding: 12px;
-}
-
-header{
-    text-align:center;
-    background-color:rgb(96, 156, 208);
-    padding:10px;
-    margin:0px;
-}
-
-
-
-#flexbox{
-    column-gap: 10px;
-    display:flex;
-    flex-flow:nowrap;
-    align-items:baseline;
-}
-
-#previous{
-    position: absolute;
-    left: 500px;
-    top:20px;
-}
-
-#next{
-    position: absolute;
-    left:900px;
-    top:20px;
-}
 

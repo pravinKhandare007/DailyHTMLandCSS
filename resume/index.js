@@ -12,7 +12,7 @@ let idArray = [];
 
 //search functinality
 const search = document.getElementById("search-box");
-search.addEventListener("input", inputResponse);
+search.addEventListener("keypress", intermideateResponse );
 
 //next fnctonality
 const next = document.getElementById("next");
@@ -21,6 +21,8 @@ next.addEventListener('click', getNextResume);
 //previous functionality
 const previous = document.getElementById("previous");
 previous.addEventListener('click', getPreviousResume);
+
+start();
 
 function start(){
     data.then( function(result){
@@ -32,8 +34,6 @@ function start(){
         hidePreviousButton();
     });
 }
-
-start();
 
 function hideNextButton(){
     document.getElementById("next").style.display = "none";
@@ -88,10 +88,35 @@ function resetIdArray(){
     console.log("reset idArray stop");
 };
 
-function inputResponse(){
-    console.log(search.value);
-    console.log(search.value == "");
+function hideResumeTemplate(){
+    document.getElementById('resume-template').style.display= "none";
+};
+
+function showResumeTemplate(){
+    document.getElementById('resume-template').style.display= "block";
+}
+
+function hideErrorMessage(){
+    document.getElementById('error-message').style.display= "none";
+}
+
+function showErrorMessage(){
+    document.getElementById('error-message').style.display= "block";
+}
+
+function intermideateResponse(e){
+    if (e.keyCode === 13) {
+        inputResponse(search.value);
+      }
+}
+
+function inputResponse(e){
+    //console.log(e);
+    //console.log(search.value)
     if(search.value == ""){
+        hidePreviousButton();
+        hideErrorMessage();
+        showResumeTemplate();
         showNextButton();
         resetId();
         resetIdArray();
@@ -108,13 +133,16 @@ function inputResponse(){
                 }
             }
         if(idArray.length == 0){
-            console.log("no matching element found");
+            hideResumeTemplate();
+            showErrorMessage();
             hideNextButton();
             hidePreviousButton();
+
         }
         else{
             console.log(idArray.length == 1)
             if( idArray.length == 1) {
+                //hideErrorMessage();
                 hideNextButton();
                 hidePreviousButton();
                 resetId();
@@ -122,6 +150,7 @@ function inputResponse(){
             }
             else{
                 resetId();
+                hideErrorMessage();
                 writeDataIntoIndexhtml(idArray[id]);
                 showNextButton();
             }
@@ -194,65 +223,4 @@ function writeDataIntoIndexhtml(id) {
 };
 
 
-// function writeDataIntoIndexhtml(ida){
-//     console.log("upload started")
-//     data.then(function(result){
-//         let objArray = result.resume;
 
-//         document.getElementById("name").innerText = objArray[ida].basics.name;
-//         document.getElementById("postion").innerText = objArray[ida].basics.AppliedFor;
-//         document.getElementById("phone-number").innerText = objArray[ida].basics.phone;
-//         document.getElementById("gmail").innerText = objArray[ida].basics.email;
-//         document.getElementById("linkedin").innerText = objArray[ida].basics.profiles.url;
-
-//         //inserting techinacal skills array
-//         let skillsArray = objArray[ida].skills.keywords;
-//         let str = skillsArray.join('<br>');
-//         let templateString = `<p>  ${str} </p>`;
-//         document.getElementById("skills").innerHTML = templateString;
-
-//         //now inserting hobbies the same way
-//         let hobbiesArray = objArray[ida].interests.hobbies;
-//         let hobbiesString = hobbiesArray.join('<br>');
-//         let hobbiesInnerHtml = `<p> ${hobbiesString} </p>`
-//         document.getElementById("hobbies").innerHTML = hobbiesInnerHtml;
-
-//         //starting to fill part-2
-//         document.getElementById("company-name").innerText = objArray[ida].work["Company Name"];
-//         document.getElementById("position").innerText = objArray[ida].work.Position;
-//         document.getElementById("start-date").innerText = objArray[ida].work["Start Date"];
-//         document.getElementById("end-date").innerText = objArray[ida].work["End Date"];
-//         document.getElementById("summary").innerText = objArray[ida].work.Summary;
-
-//         //filling Projects
-//         document.getElementById("project-name").innerText = objArray[ida].projects.name;
-//         document.getElementById("project-description").innerText = objArray[ida].projects.description;
-
-//         //education
-//         let ugObject = objArray[ida].education.UG;
-//         let ugArray = Object.values(ugObject);
-//         let stringOfUgArray = ugArray.join(', ');
-//         document.getElementById("UG").innerText = stringOfUgArray;
-
-//         let ssObject = objArray[ida].education["Senior Secondary"];
-//         let ssArray = Object.values(ssObject);
-//         let stringOfSsArray = ssArray.join(', ');
-//         document.getElementById("SS").innerText = stringOfSsArray;
-
-//         let highSchoolObject = objArray[ida].education["High School"];
-//         let highSchoolArray = Object.values(highSchoolObject);
-//         let stringOfHighSchoolArray = highSchoolArray.join(', ');
-//         document.getElementById("HS").innerText = stringOfHighSchoolArray;
-
-//         document.getElementById("internship-company-name").innerText = objArray[ida].Internship["Company Name"];
-//         document.getElementById("internship-position").innerText = objArray[ida].Internship["Position"];
-//         document.getElementById("internship-start-date").innerText = objArray[ida].Internship["Start Date"];
-//         document.getElementById("internship-end-date").innerText = objArray[ida].Internship["End Date"];
-//         document.getElementById("internship-summary").innerText = objArray[ida].Internship["Summary"];
-
-//         //achievemetns
-//         document.getElementById("achievement-summary").innerText = objArray[ida].achievements.Summary;
-
-//         console.log("upload finished");
-//     })
-// };
